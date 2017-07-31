@@ -38,10 +38,15 @@ class QueryParser:
 		self.queries = []
 
 	def parse(self):
+		'''
 		with open(self.filename) as f:
 			lines = ''.join(f.readlines())
 		self.queries = [x.rstrip().split() for x in lines.split('\n')[:-1]]
-
+		'''
+		f = open(self.filename, 'r')
+		for line in f:
+			self.queries.append(line.replace("\n","").split())
+		f.close()
 	def get_queries(self):
 		return self.queries
 

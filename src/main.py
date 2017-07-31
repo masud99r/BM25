@@ -7,8 +7,8 @@ import operator
 
 
 def main():
-	qp = QueryParser(filename='../text/queries.txt')
-	#qp = QueryParser(filename='../text/query_documents.txt')
+	#qp = QueryParser(filename='../text/queries.txt')
+	qp = QueryParser(filename='../text/query_documents2.txt')
 	#cp = CorpusParser(filename='../text/corpus.txt')
 	#cp = CorpusParser(filename='../text/candidate_methodbody_documents_only.txt')
 	cp = CorpusParser(filename='../text/candidate_documents_only.txt')
