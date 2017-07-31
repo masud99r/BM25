@@ -15,7 +15,7 @@ def score_BM25(n, f, qf, r, N, dl, avdl,df):
 	second = ((k1 + 1) * f) / (K + f)
 	third = ((k2+1) * qf) / (k2 + qf)
 	return first * second * third
-def score_BM25_formula(n, f, qf, r, N, dl, avdl, df):
+def score_BM25_formula(f, qf, r, N, dl, avdl, df):
 	# f is raw term freq, make it sublinear tf scaling
 	f = 1.0 + log(f)
 	upper_doc = (k1 + 1) * f
