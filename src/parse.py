@@ -11,13 +11,21 @@ class CorpusParser:
 		self.corpus = dict()
 
 	def parse(self):
+		blobs = []
 		with open(self.filename) as f:
-			s = ''.join(f.readlines())
-		blobs = s.split('#')[1:]
+			#s = ''.join(f.readlines())
+			for line in f:
+				blobs.append(line)
+		#blobs = s.split('#')[1:]
+		#blobs = s.split('\n')[1:]
+		line_count = 0
 		for x in blobs:
 			text = x.split()
-			docid = text.pop(0)
+			#docid = text.pop(0)
+			docid = str(line_count)
+
 			self.corpus[docid] = text
+			line_count += 1
 
 	def get_corpus(self):
 		return self.corpus

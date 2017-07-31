@@ -73,10 +73,11 @@ def build_data_structures(corpus):
 	for docid in corpus:
 
 		#build inverted index
-		for word in corpus[docid]:
+		for word in corpus[docid]:#one word by one
 			idx.add(str(word), str(docid))
 
 		#build document length table
 		length = len(corpus[str(docid)])
+		#length = len(corpus[docid])
 		dlt.add(docid, length)
 	return idx, dlt

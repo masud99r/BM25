@@ -3,8 +3,8 @@ __author__ = 'Nick Hirakawa'
 
 from math import log
 
-k1 = 1.2
-k2 = 100
+k1 = 1.5
+k2 = 1.5
 b = 0.75
 R = 0.0
 
@@ -15,7 +15,16 @@ def score_BM25(n, f, qf, r, N, dl, avdl):
 	second = ((k1 + 1) * f) / (K + f)
 	third = ((k2+1) * qf) / (k2 + qf)
 	return first * second * third
+def score_BM25_formula(n, f, qf, r, N, dl, avdl):
+	upper_doc = (k1 + 1) * f
+	lower_doc = k1 * ((1 - b) + b * (float(dl) / float(dl))) + f
+	doc_weight = (upper_doc * 1.0) / lower_doc
 
+	upper_query = (k2 + 1) * qf
+	lower_query = k2 + qf
+	query_weight = (upper_query * 1.0) / lower_query
+
+	temp_doc_score = qterm_idf * doc_weight * query_weight
 
 def compute_K(dl, avdl):
 	return k1 * ((1-b) + b * (float(dl)/float(avdl)) )
