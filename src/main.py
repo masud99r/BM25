@@ -11,7 +11,7 @@ def main():
 	qp = QueryParser(filename='../text/query_documents2.txt')
 	#cp = CorpusParser(filename='../text/corpus.txt')
 	#cp = CorpusParser(filename='../text/candidate_methodbody_documents_only.txt')
-	cp = CorpusParser(filename='../text/candidate_documents_only.txt')
+	cp = CorpusParser(filename='../text/candidate_methodbody_apitext_documents_only.txt')
 	qp.parse()
 	queries = qp.get_queries()
 	cp.parse()
